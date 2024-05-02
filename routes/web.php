@@ -29,7 +29,7 @@ Route::get('signout', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return 'This is the dashboard.' . '<button><a href="' . route('signout') . '">Sign out</a></button>';
+        return view('dashboard');
     })->name('dashboard');
 });
 

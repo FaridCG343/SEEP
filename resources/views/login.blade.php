@@ -1,5 +1,6 @@
-<div>
-    @livewire('App\Livewire\LogIN')
-    @livewireScripts
-    @livewireStyles
-</div>
+<x-base>
+    <x-slot:title>
+        Login
+    </x-slot:title>
+    @livewire('App\Livewire\LogIn')
+</x-base>

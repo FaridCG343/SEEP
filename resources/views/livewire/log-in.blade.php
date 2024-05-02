@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite('resources/css/app.css')
-
-</head>
-
-<body>
+<div>
     {{-- Background --}}
     <div class="bg-blue-100 flex justify-center items-center h-screen font-montserrat">
         {{-- seccion principal --}}
@@ -78,8 +66,4 @@
             </div>
         </div>
     </div>
-
-    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
-</body>
-
-</html>
+</div>
