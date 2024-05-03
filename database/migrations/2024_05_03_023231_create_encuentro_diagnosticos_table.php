@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departamentos', function (Blueprint $table) {
+        Schema::create('encuentro_diagnosticos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('descripcion')->nullable();
-            $table->foreignId('localizacion_id')->references('id')->on('localizaciones')->onDelete('restrict');
-            $table->string('telefono', 10)->nullable();
+            $table->foreignId('encuentro_id')->constrained();
+            $table->foreignId('diagnostico_id')->constrained();
+            $table->foreignId('paciente_id')->constrained();
+            $table->string('observaciones', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departamentos');
+        Schema::dropIfExists('encuentro_diagnosticos');
     }
 };

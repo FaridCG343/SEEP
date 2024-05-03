@@ -9,27 +9,26 @@ class Medico extends Model
 {
     use HasFactory;
 
-    /*
-    $table->foreignId('staff_id')->primary()->constrained()->onDelete('cascade');
-            $table->string('especialidad');
-            */
-
-    protected $table = 'medicos';
-
-    protected $primaryKey = 'staff_id';
-
     protected $fillable = [
         'staff_id',
         'especialidad',
+        'cedula_profesional',
+        'departamento_id',
+        'email',
     ];
 
-    public function user()
+    public function staff()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function citas()
+    public function especialidad()
     {
-        return $this->hasMany(Cita::class);
+        return $this->belongsTo(Especialidad::class);
+    }
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class);
     }
 }

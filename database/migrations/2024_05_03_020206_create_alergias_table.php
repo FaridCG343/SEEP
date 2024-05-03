@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('alergias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('paciente_id')->constrained()->onDelete('restrict');
-            $table->string('alergia', 50);
-            $table->string('descripcion', 100);
-            $table->string('reaccion', 100)->nullable();
-            $table->string('nota', 255)->nullable();
+            $table->string('tipo');
+            $table->string('alergeno');
+            $table->foreignId('paciente_id')->constrained();
+            $table->string('grado', 50)->nullable();
+            $table->string('tratamiento', 255)->nullable();
+            $table->date('fecha_deteccion')->nullable();
+            $table->enum('estatus', ['Activa', 'Resuelta', 'Inactiva'])->default('Activa');
             $table->timestamps();
         });
     }

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('diagnosticos', function (Blueprint $table) {
+        Schema::create('documentos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cita_id')->constrained()->onDelete('restrict');
-            $table->foreignId('enfermedad_id')->constrained('enfermedades')->onDelete('restrict');
-            $table->string('observaciones', 100);
-            $table->dateTime('fecha_diagnostico');
+            $table->string('nombre');
+            $table->string('ruta');
+            $table->foreignId('paciente_id')->constrained();
+            $table->foreignId('medico_id')->constrained()->nullable();
+            $table->string('descripcion', 255)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('diagnosticos');
+        Schema::dropIfExists('documentos');
     }
 };

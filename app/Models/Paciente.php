@@ -9,39 +9,28 @@ class Paciente extends Model
 {
     use HasFactory;
 
-    /*
-    $table->id();
-    $table->string('curp', 18)->unique();
-            $table->string('nombre', 30);
-            $table->string('ap_paterno', 30);
-            $table->string('ap_materno', 30);
-            $table->date('fecha_nacimiento');
-            $table->string('sexo', 1);
-            $table->string('email', 50)->unique();
-            $table->index(['nombre', 'ap_paterno', 'ap_materno']);*/
-
-    protected $table = 'pacientes';
-
-    protected $primaryKey = 'curp';
-
+    // $table->string('nombre');
+    //         $table->string('apellido_paterno');
+    //         $table->string('apellido_materno');
+    //         $table->string('curp', 18)->unique();
+    //         $table->string('sexo', 1)->comment('H para hombre, M para mujer, O para otro');
+    //         $table->date('fecha_nacimiento');
+    //         $table->foreignId('direccion_id')->constrained('direcciones')->onDelete('restrict');
+    //         $table->string('email')->unique()->nullable();
     protected $fillable = [
-        'curp',
         'nombre',
-        'ap_paterno',
-        'ap_materno',
-        'fecha_nacimiento',
+        'apellido_paterno',
+        'apellido_materno',
+        'curp',
         'sexo',
+        'fecha_nacimiento',
+        'direccion_id',
         'email',
     ];
 
-    public function getFullNameAttribute()
+    public function direccion()
     {
-        return $this->nombre . ' ' . $this->ap_paterno . ' ' . $this->ap_materno;
-    }
-
-    public function citas()
-    {
-        return $this->hasMany(Cita::class);
+        return $this->belongsTo(Direccion::class);
     }
 
     public function alergias()
@@ -49,13 +38,43 @@ class Paciente extends Model
         return $this->hasMany(Alergia::class);
     }
 
-    public function enfermedades()
+    public function vacunas()
     {
-        return $this->hasMany(Enfermedad::class);
+        return $this->hasMany(Vacuna::class);
     }
 
-    public function medicamentos()
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
+
+    public function encuentros()
+    {
+        return $this->hasMany(Encuentro::class);
+    }
+
+    public function medicaciones()
     {
         return $this->hasMany(Medicacion::class);
+    }
+
+    public function documentos()
+    {
+        return $this->hasMany(Documento::class);
+    }
+
+    public function procedimientos()
+    {
+        return $this->hasMany(Procedimiento::class);
+    }
+
+    public function diagnosticos()
+    {
+        return $this->hasMany(Diagnostico::class);
+    }
+
+    public function laboratorios()
+    {
+        return $this->hasMany(Laboratorio::class);
     }
 }

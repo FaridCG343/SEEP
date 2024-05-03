@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('localizaciones', function (Blueprint $table) {
+        Schema::create('departamentos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('estado');
-            $table->string('ciudad');
-            $table->string('codigo_postal', 5);
-            $table->string('colonia');
-            $table->string('calle');
-            $table->string('numero_exterior');
-            $table->string('numero_interior')->nullable();
+            $table->foreignId('institucion_medica_id')->constrained('instituciones_medicas');
+            $table->string('descripcion', 255)->nullable();
             $table->string('telefono', 10)->nullable();
+            $table->foreignId('especialidad_id')->constrained('especialidades');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('localizacions');
+        Schema::dropIfExists('departamentos');
     }
 };

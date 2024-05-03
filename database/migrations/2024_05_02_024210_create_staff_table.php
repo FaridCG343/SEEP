@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('rol', ['Medico', 'Enfermero', 'Administrador']);
+            $table->enum('rol', ['Medico', 'Enfermero', 'Administrador', 'Operador']);
             $table->string('telefono', 10)->nullable();
             $table->foreignId('departamento_id')->constrained('departamentos')->onDelete('restrict');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

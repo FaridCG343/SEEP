@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
             $table->string('curp', 18)->unique();
-            $table->string('nombre', 30);
-            $table->string('ap_paterno', 30);
-            $table->string('ap_materno', 30);
+            $table->string('sexo', 1)->comment('H para hombre, M para mujer, O para otro');
             $table->date('fecha_nacimiento');
-            $table->string('sexo', 1);
-            $table->string('email', 50)->unique();
-            $table->index(['nombre', 'ap_paterno', 'ap_materno']);
+            $table->foreignId('direccion_id')->constrained('direcciones')->onDelete('restrict');
+            $table->string('email')->unique()->nullable();
             $table->timestamps();
         });
     }

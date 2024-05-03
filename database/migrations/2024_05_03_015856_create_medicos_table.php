@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medicos', function (Blueprint $table) {
-            $table->foreignId('staff_id')->primary()->constrained()->onDelete('cascade');
-            $table->string('especialidad');
+            $table->id();
+            $table->string('cedula_profesional', 10)->unique();
+            $table->foreignId('especialidad_id')->constrained('especialidades');
+            $table->foreignId('departamento_id')->constrained();
+            $table->string('email')->unique()->nullable();
+            $table->foreignId('staff_id')->constrained();
             $table->timestamps();
         });
     }
