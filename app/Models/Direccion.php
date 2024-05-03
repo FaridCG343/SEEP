@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\DireccionFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,10 +18,15 @@ class Direccion extends Model
         'numero_interior',
         'colonia',
         'codigo_postal',
-        'municipio',
+        'ciudad',
         'estado',
         'telefono',
     ];
+
+    protected static function newFactory()
+    {
+        return DireccionFactory::new();
+    }
 
     public function pacientes()
     {

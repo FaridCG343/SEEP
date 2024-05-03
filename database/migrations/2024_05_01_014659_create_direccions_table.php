@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('codigo_postal', 5)->comment('Código postal de la dirección');
             $table->string('ciudad')->comment('Nombre de la ciudad');
             $table->string('estado')->comment('Nombre del estado');
-            $table->string('telefono', 10)->nullable();
+            $table->string('telefono', 16)->nullable();
 
             $table->timestamps();
         });

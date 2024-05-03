@@ -6,8 +6,14 @@ namespace Database\Seeders;
 
 use App\Enum\Rol;
 use App\Models\Administrador;
+use App\Models\Cita;
 use App\Models\Departamento;
+use App\Models\Direccion;
+use App\Models\Especialidad;
+use App\Models\InstitucionMedica;
 use App\Models\Localizacion;
+use App\Models\Medico;
+use App\Models\Paciente;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,31 +24,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $table->string('nombre');
-        // $table->string('estado');
-        // $table->string('ciudad');
-        // $table->string('codigo_postal', 5);
-        // $table->string('colonia');
-        // $table->string('calle');
-        // $table->string('numero_exterior');
-        // $table->string('numero_interior')->nullable();
-        // $table->string('telefono', 10)->nullable();
-        $localizacion = new Localizacion([
-            'nombre' => 'Similares',
-            'estado' => 'CDMX',
-            'ciudad' => 'CDMX',
-            'codigo_postal' => '12345',
-            'colonia' => 'Colonia',
+        $direccion = new Direccion([
             'calle' => 'Calle',
             'numero_exterior' => '123',
+            'numero_interior' => '123',
+            'colonia' => 'Colonia',
+            'codigo_postal' => '12345',
+            'ciudad' => 'CDMX',
+            'estado' => 'CDMX',
             'telefono' => '1234567890',
         ]);
 
-        $localizacion->save();
+        $especialidad = new Especialidad([
+            'nombre' => 'Medicina General',
+        ]);
+
+        $especialidad->save();
+
+        $direccion->save();
+
+        $institucion = $direccion->instituciones()->create([
+            'nombre' => 'Similares',
+            'tipo' => 'hospital',
+        ]);
 
         $departamento = new Departamento([
             'nombre' => 'Departamento',
-            'localizacion_id' => $localizacion->id,
+            'institucion_medica_id' => $institucion->id,
+            'especialidad_id' => $especialidad->id,
         ]);
 
         $departamento->save();
@@ -57,13 +66,33 @@ class DatabaseSeeder extends Seeder
             'telefono' => '1234567890',
             'departamento_id' => $departamento->id,
         ]);
-
+        
         $user->save();
 
-        $admin = new Administrador([
-            "staff_id" => $user->id,
+        $user = new User([
+            'nombre' => 'Erika',
+            'apellido_paterno' => 'Gomez',
+            'apellido_materno' => 'Allende',
+            'email' => 'eri.sushie@gmail.com',
+            'password' => 'erikita123',
+            'rol' => Rol::Medico,
+            'telefono' => '1234567890',
+            'departamento_id' => $departamento->id,
+        ]);
+        
+        $user->save();
+
+        $medico = new Medico([
+            'cedula_profesional' => '1234567890',
+            'staff_id' => $user->id,
+            'especialidad_id' => $especialidad->id,
+            'departamento_id' => $departamento->id,
         ]);
 
-        $admin->save();
+        $medico->save();
+
+        Paciente::factory(100)->create();
+
+        Cita::factory(20)->create();
     }
 }

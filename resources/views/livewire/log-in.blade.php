@@ -5,7 +5,7 @@
         <div class="bg-white w-4/6 h-5/6 rounded-3xl shadow-md overflow-hidden flex">
             {{-- seccion derecha --}}
             <div class=" bg-blue-400 h-full w-2/5">
-                {{-- en proceso.... --}}
+                {{-- en proceso figuras y animaciones.... --}}
             </div>
             {{-- seccion izquierda --}}
             <div class="bg-white h-full w-3/5 flex justify-center items-center">

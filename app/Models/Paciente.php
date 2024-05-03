@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\PacienteFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,6 +28,11 @@ class Paciente extends Model
         'direccion_id',
         'email',
     ];
+
+    protected static function newFactory()
+    {
+        return PacienteFactory::new();
+    }
 
     public function direccion()
     {
@@ -77,4 +83,12 @@ class Paciente extends Model
     {
         return $this->hasMany(Laboratorio::class);
     }
+
+    public function index()
+    {
+    $pacientes = Paciente::all();
+
+    return view('pacientes.index', compact('pacientes'));
+    }
+
 }

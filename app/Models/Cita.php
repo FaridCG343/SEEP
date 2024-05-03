@@ -20,6 +20,15 @@ class Cita extends Model
         'motivo',
     ];
 
+    protected $dates = [
+        'fecha_hora_cita',
+    ];
+
+    protected static function newFactory()
+    {
+        return \Database\Factories\CitaFactory::new();
+    }
+
     public function paciente()
     {
         return $this->belongsTo(Paciente::class);

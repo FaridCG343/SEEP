@@ -2,5 +2,5 @@
     <x-slot:title>
         Dashboard
     </x-slot:title>
-    @livewire('App\Livewire\Dashboard')
+    @livewire('App\Livewire\dashboard')
 </x-base>

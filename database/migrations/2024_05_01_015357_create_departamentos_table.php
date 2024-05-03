@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->foreignId('institucion_medica_id')->constrained('instituciones_medicas');
             $table->string('descripcion', 255)->nullable();
-            $table->string('telefono', 10)->nullable();
+            $table->string('telefono', 16)->nullable();
             $table->foreignId('especialidad_id')->constrained('especialidades');
             $table->timestamps();
         });

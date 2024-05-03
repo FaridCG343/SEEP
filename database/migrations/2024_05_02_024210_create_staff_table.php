@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('rol', ['Medico', 'Enfermero', 'Administrador', 'Operador']);
-            $table->string('telefono', 10)->nullable();
+            $table->string('telefono', 16)->nullable();
             $table->foreignId('departamento_id')->constrained('departamentos')->onDelete('restrict');
             $table->timestamps();
         });

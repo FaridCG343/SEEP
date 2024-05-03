@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('departamento_id')->constrained();
             $table->dateTime('fecha_hora_cita');
             $table->enum('tipo', ['Consulta', 'Examen', 'Operación'])->default('Consulta');
-            $table->enum('estatus', ['Pendiente', 'Atendida', 'Cancelada'])->default('Pendiente');
+            $table->enum('estatus', ['Pendiente', 'Atendida', 'Cancelada', 'No Asistió', 'Completada'])->default('Pendiente');
             $table->string('motivo', 255)->nullable();
             $table->timestamps();
         });
