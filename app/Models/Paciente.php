@@ -10,14 +10,6 @@ class Paciente extends Model
 {
     use HasFactory;
 
-    // $table->string('nombre');
-    //         $table->string('apellido_paterno');
-    //         $table->string('apellido_materno');
-    //         $table->string('curp', 18)->unique();
-    //         $table->string('sexo', 1)->comment('H para hombre, M para mujer, O para otro');
-    //         $table->date('fecha_nacimiento');
-    //         $table->foreignId('direccion_id')->constrained('direcciones')->onDelete('restrict');
-    //         $table->string('email')->unique()->nullable();
     protected $fillable = [
         'nombre',
         'apellido_paterno',
@@ -86,9 +78,8 @@ class Paciente extends Model
 
     public function index()
     {
-    $pacientes = Paciente::all();
+        $pacientes = Paciente::all();
 
-    return view('pacientes.index', compact('pacientes'));
+        return view('pacientes.index', compact('pacientes'));
     }
-
 }

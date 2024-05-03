@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,25 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    } else {
-        return view('login');
-    }
-})->name('login');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
 
-Route::get('signout', function () {
-    Auth::logout();
-    return redirect()->route('login');
-})->name('signout');
+Route::get('signout', [HomeController::class, 'signout'])->name('signout');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-Route::get('/', function () {
-    return redirect()->route('dashboard');
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    });
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('/calendario-citas', [HomeController::class, 'calendarioCitas'])->name('calendario-citas');
 });

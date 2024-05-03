@@ -17,14 +17,14 @@ class CalendarioCitas extends Component
     {
         $citas = Cita::with('paciente')->where('estatus', EstadoCita::PENDIENTE);
 
-        if(auth()->user()->rol == Rol::Medico){
+        if (auth()->user()->rol == Rol::Medico) {
             $medicoID = Medico::where('user_id', auth()->user()->id)->first()->id;
             $citas = $citas->where('medico_id', $medicoID);
         }
 
         $citas = collect($citas->get());
-        
-        $this->citas = $citas->map(function(Cita $cita){
+
+        $this->citas = $citas->map(function (Cita $cita) {
             // dd($cita->toArray());
             $cita = $cita->toArray();
             // cast the 'fecha_hora_cita' to a string for the fullcalendar
@@ -33,6 +33,7 @@ class CalendarioCitas extends Component
                 'title' => 'Cita con ' . $cita['paciente']['nombre'] . ' ' . $cita['paciente']['apellido_paterno'],
                 'start' => $cita['fecha_hora_cita'],
                 'allDay' => false,
+                "motivo" => $cita['motivo'],
             ];
         })->toArray();
         $this->dispatch('CitasCargadas', $this->citas);

@@ -2,31 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Table pagination: active page highlight */
-.mary-table-pagination span[aria-current="page"] > span {
-    @apply bg-primary text-base-100
-}
-
-/* Table pagination: for dark mode*/
-.mary-table-pagination span[aria-disabled="true"] span {
-    @apply bg-inherit
-}
-
-/* Table pagination: for dark mode */
-.mary-table-pagination button {
-    @apply bg-base-100
-}
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-@layer utilities{
-    .text-gradient{
+@layer utilities {
+    .text-gradient {
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    
+
 }
