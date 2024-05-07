@@ -22,7 +22,7 @@ export default {
                 'text-hover': '#0B1956'
             },
             fontFamily: {
-                'montserrat': ["Montserrat", 'sans-serif'],
+                'montserrat': ["Montserrat"],
             },
             fontWeight: {
                 'customWeight': '<weight>',

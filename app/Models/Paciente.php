@@ -75,11 +75,4 @@ class Paciente extends Model
     {
         return $this->hasMany(Laboratorio::class);
     }
-
-    public function index()
-    {
-        $pacientes = Paciente::all();
-
-        return view('pacientes.index', compact('pacientes'));
-    }
 }

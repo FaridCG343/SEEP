@@ -53,19 +53,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    /*
-     $table->id();
-            $table->string('nombre');
-            $table->string('apellido_paterno');
-            $table->string('apellido_materno');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('rol', ['Medico', 'Enfermero', 'Administrador']);
-            $table->string('telefono', 10)->nullable();
-            $table->foreignId('departamento_id')->constrained('departamentos')->onDelete('restrict');
-            */
-
     protected function password(): Attribute
     {
         return Attribute::make(
@@ -87,5 +74,4 @@ class User extends Authenticatable
     {
         return $this->morphTo();
     }
-
 }

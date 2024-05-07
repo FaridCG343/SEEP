@@ -15,6 +15,10 @@ class LogIn extends Component
         $this->validate([
             'email' => 'required|email',
             'password' => 'required',
+        ], [
+            'email.required' => 'El campo email es obligatorio.',
+            'email.email' => 'El campo email debe ser un email válido.',
+            'password.required' => 'El campo contraseña es obligatorio.',
         ]);
 
         if (auth()->attempt(['email' => $this->email, 'password' => $this->password])) {
