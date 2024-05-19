@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Livewire\FormPacientes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     });
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/calendario-citas', [HomeController::class, 'calendarioCitas'])->name('calendario-citas');
+    Route::get('/new-patient', [HomeController::class, 'newPatient'])->name('new-patient');
 });
+
+

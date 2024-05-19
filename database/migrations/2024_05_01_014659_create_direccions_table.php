@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ciudad')->comment('Nombre de la ciudad');
             $table->string('estado')->comment('Nombre del estado');
             $table->string('telefono', 16)->nullable();
+            $table->string('email', 50)->nullable()->unique();
 
             $table->timestamps();
         });

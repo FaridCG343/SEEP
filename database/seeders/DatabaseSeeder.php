@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
 
         $medico->save();
 
-        Paciente::factory(100)->create();
+        Paciente::factory(10000)->create();
 
         Cita::factory(20)->create();
     }

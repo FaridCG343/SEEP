@@ -18,7 +18,6 @@ class Paciente extends Model
         'sexo',
         'fecha_nacimiento',
         'direccion_id',
-        'email',
     ];
 
     protected static function newFactory()

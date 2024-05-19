@@ -9,6 +9,11 @@
         </x-slot:actions>
     </x-header>
 
+
+    
+    <div>
+        
+    </div>
     <!-- TABLE  -->
     <x-card>
         <x-table :headers="$headers" :rows="$users" :sort-by="$sortBy">

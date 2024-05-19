@@ -27,4 +27,9 @@ class HomeController extends Controller
         auth()->logout();
         return redirect()->route('login');
     }
+
+    public function newPatient()
+    {
+        return view('new-patient');
+    }
 }

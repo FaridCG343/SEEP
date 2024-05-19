@@ -16,7 +16,7 @@
 <body>
     @if (auth()->check())
         {{-- background --}}
-        <div class="bg-dashboard flex h-screen pl-5">
+        <div class="bg-dashboard flex h-screen pl-5 bg-gray-100">
             {{-- navbar medico --}}
             <div
                 class="bg-gradient-to-b from-gd-rectangle-1 via-gd-rectangle-2 to-gd-rectangle-3 w-2/12 h-11/12 rounded-3xl shadow-md overflow-hidden flex-wrap self-start self-center p-5">
@@ -44,7 +44,7 @@
                             Home
                         </a>
 
-                        <a role="button"
+                        <a role="button" href="{{ route('new-patient') }}"
                             class="font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">
                             <div class="grid mr-2 place-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
@@ -118,7 +118,7 @@
             <div class="container">
                 <div class="flex justify-center h-screen">
                     <div
-                        class="bg-white border-2 border-gray-150 w-11/12 h-11/12 rounded-3xl drop-shadow-sm overflow-hidden flex items-center justify-center ml-0 self-center">
+                        class="bg-gray-50 border-2 border-gray-150 w-11/12 h-11/12 rounded-3xl drop-shadow-sm overflow-hidden flex items-center justify-center ml-0 self-center flex">
                         {{ $slot }}
                     </div>
                 </div>
@@ -129,6 +129,32 @@
             {{ $slot }}
         </div>
     @endif
+    @script
+    <script>
+        document.addEventListener('livewire:init', () => {
+        Livewire.on('post-created', (event) => {
+                //
+            });
+        });
+        $wire.on('error', (message) => {
+            Swal.fire({
+                title: 'Error!',
+                text: message,
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            });
+        });
+
+        $wire.on('info', (message) => {
+            Swal.fire({
+                title: 'Exito!',
+                text: message,
+                icon: 'info',
+                confirmButtonText: 'Cool'
+            });
+        });
+    </script>
+    @endscript
 </body>
 
 </html>

@@ -14,4 +14,86 @@
         -webkit-text-fill-color: transparent;
     }
 
+    .custom-table {
+        border-collapse:collapse;
+        width: 100%;
+        color:black;
+
+    }
+    
+    .custom-table th {
+        padding-left: 0.1px;
+        color: #000000;
+        border: 1 px solid #ddd;
+        font-size: 12px;
+    }
+    .custom-table td {
+        padding: 1px;
+        border: 1px solid #ddd;
+        font-size: 9px;
+        text-align: center;
+        
+    }
+
+    .page-item {
+        margin: 1px;
+        padding: 2px;
+        font-size: 10px;
+    }
+
+    .page-item.active {
+        background-color: #5EADFF;
+        border-radius: 10px;
+        color: #ffffff;
+    }
+
+    .triangle1 {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 1.5rem 3rem 1.5rem;
+        transform: rotate(45deg);
+        border-color: transparent transparent #D2E8FF transparent;
+      }
+
+    .triangle2 {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 1.5rem 3rem 1.5rem;
+        transform: rotate(-35deg);
+        border-color: transparent transparent #D2E8FF transparent;
+    }
+
+    .triangle3{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 2rem 4rem 2rem;
+        transform: rotate(35deg);
+        border-color: transparent transparent #D2E8FF transparent;
+    }
+
+    .divider-ps {
+        border-top-color: #C6C6C6;
+        border-top-width: 1px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .divider-norm {
+        border-top-color: #C6C6C6;
+        border-top-width: 1px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+
+    .design-over {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #a9d3ff transparent;
+    }
+    
+
+
 }

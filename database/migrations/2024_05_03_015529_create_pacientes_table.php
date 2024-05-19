@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('sexo', 1)->comment('H para hombre, M para mujer, O para otro');
             $table->date('fecha_nacimiento');
             $table->foreignId('direccion_id')->constrained('direcciones')->onDelete('restrict');
-            $table->string('email')->unique()->nullable();
             $table->timestamps();
         });
     }

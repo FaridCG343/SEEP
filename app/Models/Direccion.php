@@ -21,6 +21,7 @@ class Direccion extends Model
         'ciudad',
         'estado',
         'telefono',
+        'email'
     ];
 
     protected static function newFactory()
