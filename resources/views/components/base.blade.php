@@ -129,32 +129,30 @@
             {{ $slot }}
         </div>
     @endif
-    @script
     <script>
         document.addEventListener('livewire:init', () => {
-        Livewire.on('post-created', (event) => {
-                //
+            Livewire.on('error', (message) => {
+                message = message.message;
+                Swal.fire({
+                    title: 'Error!',
+                    text: message,
+                    icon: 'error',
+                    confirmButtonText: 'Cool'
+                });
             });
-        });
-        $wire.on('error', (message) => {
-            Swal.fire({
-                title: 'Error!',
-                text: message,
-                icon: 'error',
-                confirmButtonText: 'Cool'
-            });
-        });
 
-        $wire.on('info', (message) => {
-            Swal.fire({
-                title: 'Exito!',
-                text: message,
-                icon: 'info',
-                confirmButtonText: 'Cool'
+            Livewire.on('info', (message) => {
+                message = message.message;
+                console.log(message);
+                Swal.fire({
+                    title: 'Exito!',
+                    text: message,
+                    icon: 'info',
+                    confirmButtonText: 'Cool'
+                });
             });
         });
     </script>
-    @endscript
 </body>
 
 </html>

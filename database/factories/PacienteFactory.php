@@ -27,7 +27,6 @@ class PacienteFactory extends Factory
             'sexo' => $this->faker->randomElement(['H', 'M']),
             'fecha_nacimiento' => $this->faker->date(),
             'direccion_id' => \App\Models\Direccion::factory(),
-            'email' => $this->faker->unique()->safeEmail,
         ];
     }
 }

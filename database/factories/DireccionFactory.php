@@ -28,6 +28,7 @@ class DireccionFactory extends Factory
             'ciudad' => $this->faker->city,
             'estado' => $this->faker->state,
             'telefono' => $this->faker->regexify('\(\d{3}\) \d{3}-\d{4}'),
+            'email' => $this->faker->unique()->safeEmail,
         ];
     }
 }

@@ -19,7 +19,7 @@ class FormPacientes extends Component
 
     public $curp;
     
-    public $sexo;
+    public $sexo = 'H';
     
     public $fechaNac;
     
@@ -146,8 +146,9 @@ class FormPacientes extends Component
             $paciente->save();
             $this->dispatch('info', message: '¡Paciente registrado correctamente!');
             DB::commit();
-        } catch (Exception){
+        } catch (Exception $e){
             DB::rollBack();
+            dd($e->getMessage());
             $this->dispatch('error', message: 'Hubo un error al crear el paciene');
         }
         $this->reset();
