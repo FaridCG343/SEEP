@@ -1,5 +1,6 @@
 
 <div class="h-full w-full flex flex-col justify-center pt-5 pl-5">
+    
     <div class="flex items-center justify-between gap-2">
         <div class="flex gap-2 self-center">
             <h1 class="font-extrabold text-xl color-font">Bienvenido</h1>
@@ -7,7 +8,12 @@
         </div>
     </div>
 
-    <div class="h-full w-full flex justify-center items-center">
+        @livewire('App\Livewire\CalendarHome')
+
+    
+
+    
+<div class="h-full w-full flex justify-center items-center">
         <div class="font-montserrat mb-4 flex-col h-9/12 bg-white flex self-end">
             <x-table :headers="$headers" :rows="$pacientes" class="custom-table"/>
             <div class="flex-row justify-center mt-3">
@@ -17,5 +23,8 @@
             </div>   
         </div>
     </div>
+    
+
+    
 </div>
 
