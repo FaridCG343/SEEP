@@ -1,5 +1,5 @@
-<div class="h-full w-2/5 flex justify-end mb-2 mr-10 self-end">
-    <div style="height: 100%; width: 100%; font-size:10px" class="font-montserrat design-over bg-white card h-44 shadow-xl bg-white p-3">
+<div class="h-44 w-5/6 mb-3 mr-10 justify-self-end mt-2">
+    <div style="height: 100%; width: 100%; font-size:10px" class="font-montserrat design-over card h-44 shadow-xl bg-white p-3">
         <div id="calendario" style="width: 100%">
         </div>
         @script
