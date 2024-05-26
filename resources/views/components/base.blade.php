@@ -19,9 +19,9 @@
         <div class="bg-dashboard flex h-screen pl-5 bg-gray-100">
             {{-- navbar medico --}}
             <div
-                class="bg-gradient-to-b from-gd-rectangle-1 via-gd-rectangle-2 to-gd-rectangle-3 w-2/12 h-11/12 rounded-3xl shadow-md overflow-hidden flex-wrap self-start self-center p-5">
+                class="bg-gradient-to-b from-gd-rectangle-1 via-gd-rectangle-2 to-gd-rectangle-3 w-2/12 h-11/12 rounded-3xl shadow-md overflow-hidden flex-col self-start self-center items-start p-5 grid">
                 {{-- logo y nombre --}}
-                <div class="flex justify-center items-center space-x-1">
+                <div class="flex justify-center space-x-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em" viewBox="0 0 24 24">
                         <path fill="#FDF9F5"
                             d="M18 18a1 1 0 0 0-1 1a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h5v3a3 3 0 0 0 3 3h3v1a1 1 0 0 0 2 0V8.94a1.31 1.31 0 0 0-.06-.27a.32.32 0 0 0 0-.09a1.07 1.07 0 0 0-.19-.28l-6-6a1.07 1.07 0 0 0-.28-.19h-.1a1.14 1.14 0 0 0-.3-.11H6a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3a1 1 0 0 0-1-1M13 5.41L15.59 8H14a1 1 0 0 1-1-1ZM20 14h-2.5a1 1 0 0 0-.71.29l-1.24 1.25l-2.8-3.2a1 1 0 0 0-1.46-.05L9.59 14H8a1 1 0 0 0 0 2h2a1 1 0 0 0 .71-.29L12 14.46l2.8 3.2a1 1 0 0 0 .72.34a1 1 0 0 0 .71-.29L17.91 16H20a1 1 0 0 0 0-2" />
@@ -30,7 +30,7 @@
                 </div>
 
                 {{-- navbar --}}
-                <div class="mt-5">
+                <div class="flex">
                     <nav>
                         <a role="button" href="{{ route('dashboard') }}"
                             class="font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">
@@ -102,7 +102,7 @@
                             Configuracion
                         </a>
                         <a role="button" href="{{ route('signout') }}"
-                            class="font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl         outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">
+                            class="font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">
                             <div class="grid mr-2 place-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                     viewBox="0 0 24 24">
@@ -114,15 +114,32 @@
                         </a>
                     </nav>
                 </div>
+
+
+                    <div class="bg-white rounded-2x p-2 flex items-center self-end gap-2 rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp"
+                        alt="avatar"
+                        class="inline-block relative object-cover object-center !rounded-full w-12 h-12 border-2 border-blue-300 p-0.5" />
+                        <h6
+                            class="block text-xs text-gray-900 antialiased font-semibold leading-relaxed tracking-normal">
+                            Pablo Rodriguez
+                        </h6>
+                    </div>
+
+
             </div>
+
+
             <div class="container">
                 <div class="flex justify-center h-screen">
                     <div
-                        class="bg-gray-50 border-2 border-gray-150 w-11/12 h-11/12 rounded-3xl drop-shadow-sm overflow-hidden flex items-center justify-center ml-0 self-center flex">
+                        class="bg-gray-50 border-2 border-gray-150 w-11/12 h-11/12 rounded-3xl drop-shadow-sm overflow-hidden items-center justify-center ml-0 self-center flex">
                         {{ $slot }}
                     </div>
                 </div>
             </div>
+
+
         </div>
     @else
         <div class="container">

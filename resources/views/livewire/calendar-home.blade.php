@@ -1,5 +1,5 @@
-<div class="h-full w-full flex justify-end pr-16">
-    <div style="height: 90%; width: 35%; font-size:10px" class="font-montserrat design-over bg-white">
+<div class="h-full w-2/5 flex justify-end mb-2 mr-10 self-end">
+    <div style="height: 100%; width: 100%; font-size:10px" class="font-montserrat design-over bg-white card h-44 shadow-xl bg-white p-3">
         <div id="calendario" style="width: 100%">
         </div>
         @script
@@ -8,7 +8,7 @@
                 citas = citas[0];
                 var calendarioEl = document.getElementById('calendario');
                 var calendario = new FullCalendar.Calendar(calendarioEl, {
-                    initialView: 'listWeek',
+                    initialView: 'dayGridDay',
                     events: citas,
                     locale: 'es',
                     height: "100%",
