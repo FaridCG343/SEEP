@@ -40,6 +40,11 @@ class FormPacientes extends Component
 
     public $email;
 
+    public $showModal = false;
+    public $messageTitle = '';
+    public $messageContent = '';
+    public $buttonText = 'Cerrar';
+
     public $sexoOption = [
         [
             "id" => 'H',
@@ -144,14 +149,20 @@ class FormPacientes extends Component
             ]);
 
             $paciente->save();
-            $this->dispatch('info', message: '¡Paciente registrado correctamente!');
+            //$this->dispatch('info', message: '¡Paciente registrado correctamente!');
             DB::commit();
+            $this->messageTitle = 'Paciente Agregado';
+            $this->messageContent = 'El paciente ha sido agregado exitosamente.';
+            $this->buttonText = 'Cerrar';
+            $this->showModal = true;
         } catch (Exception $e) {
             DB::rollBack();
             dd($e->getMessage());
-            $this->dispatch('error', message: 'Hubo un error al crear el paciene');
+            //$this->dispatch('error', message: 'Hubo un error al crear el paciente');
         }
-        $this->reset();
+        $this->resetExcept('showModal', 'messageTitle', 'messageContent', 'buttonText');
+        //$this->reset();
+
     }
 
 
