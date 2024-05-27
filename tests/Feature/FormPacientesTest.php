@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Livewire\Livewire;
-use App\Models\Direccion;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FormPacientesTest extends TestCase
@@ -31,9 +30,12 @@ class FormPacientesTest extends TestCase
             ->set('telefono', '1234567890')
             ->set('email', 'correo@example.com')
             ->call('store')
-            ->assertDispatched('info', ['message' => '¡Paciente registrado correctamente!']);
+            ->assertSet('showModal', true)
+            ->assertSet('messageTitle', 'Paciente Agregado')
+            ->assertSet('messageContent', 'El paciente ha sido agregado exitosamente.')
+            ->assertSet('buttonText', 'Cerrar');
 
-        $this->assertDatabaseHas('direccions', [
+        $this->assertDatabaseHas('direcciones', [
             'calle' => 'Calle Falsa',
             'numero_exterior' => '123',
             'numero_interior' => '456',

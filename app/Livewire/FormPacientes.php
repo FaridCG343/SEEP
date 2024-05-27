@@ -133,7 +133,7 @@ class FormPacientes extends Component
                 'codigo_postal' => $this->codigoPost,
                 'ciudad' => $this->ciudad,
                 'estado' => $this->estado,
-                'telefono' => $this->calle,
+                'telefono' => $this->telefono,
                 'email' => $this->email,
             ]);
 
@@ -157,15 +157,13 @@ class FormPacientes extends Component
             $this->showModal = true;
         } catch (Exception $e) {
             DB::rollBack();
-            dd($e->getMessage());
-            //$this->dispatch('error', message: 'Hubo un error al crear el paciente');
+            $this->messageTitle = 'Error';
+            $this->messageContent = 'Ha ocurrido un error al intentar agregar el paciente.';
+            $this->buttonText = 'Cerrar';
+            $this->showModal = true;
         }
         $this->resetExcept('showModal', 'messageTitle', 'messageContent', 'buttonText');
-        //$this->reset();
-
     }
-
-
 
     public function render()
     {

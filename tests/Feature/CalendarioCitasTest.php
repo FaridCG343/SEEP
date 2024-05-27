@@ -19,11 +19,11 @@ class CalendarioCitasTest extends TestCase
     /** @test */
     public function it_loads_pending_appointments_for_medico()
     {
-        $medico = Medico::factory()->create();
-        $user = User::factory()->create([
-            'rol' => Rol::Medico,
-            'id' => $medico->user_id,
-        ]);
+        $this->artisan('migrate:fresh');
+        $this->seed();
+
+        $medico = Medico::first();
+        $user = $medico->staff;
 
         $this->actingAs($user);
 
@@ -37,18 +37,16 @@ class CalendarioCitasTest extends TestCase
         ]);
 
         Livewire::test('calendario-citas')
-            ->call('mount')
-            ->assertDispatched('CitasCargadas', function ($citas) use ($paciente) {
-                return $citas[0]['title'] === 'Cita con ' . $paciente->nombre . ' ' . $paciente->apellido_paterno;
+            ->assertDispatched('CitasCargadas', function ($event, $args) use ($paciente) {
+                return $args["citas"][count($args["citas"]) - 1]['title'] === 'Cita con ' . $paciente->nombre . ' ' . $paciente->apellido_paterno;
             });
     }
 
     /** @test */
     public function it_loads_pending_appointments_for_non_medico_user()
     {
-        $user = User::factory()->create([
-            'rol' => Rol::Administrador, // assuming Admin is another role
-        ]);
+        $this->seed();
+        $user = User::where('rol', Rol::Administrador)->first();
 
         $this->actingAs($user);
 
@@ -61,9 +59,8 @@ class CalendarioCitasTest extends TestCase
         ]);
 
         Livewire::test('calendario-citas')
-            ->call('mount')
-            ->assertDispatched('CitasCargadas', function ($citas) use ($paciente) {
-                return $citas[0]['title'] === 'Cita con ' . $paciente->nombre . ' ' . $paciente->apellido_paterno;
+            ->assertDispatched('CitasCargadas', function ($event, $args) use ($paciente) {
+                return $args["citas"][count($args["citas"]) - 1]['title'] === 'Cita con ' . $paciente->nombre . ' ' . $paciente->apellido_paterno;
             });
     }
 }

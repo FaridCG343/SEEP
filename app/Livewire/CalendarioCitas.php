@@ -36,7 +36,7 @@ class CalendarioCitas extends Component
                 "motivo" => $cita['motivo'],
             ];
         })->toArray();
-        $this->dispatch('CitasCargadas', $this->citas);
+        $this->dispatch('CitasCargadas', citas: $this->citas);
     }
 
     public function render()
