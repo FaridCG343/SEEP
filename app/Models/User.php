@@ -74,6 +74,7 @@ class User extends Authenticatable
     {
         return $this->morphTo();
     }
-    public function usuario(){}
-    
+    public function usuario()
+    {
+    }
 }
