@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('cedula_profesional', 10)->unique();
             $table->foreignId('especialidad_id')->constrained('especialidades');
-            $table->foreignId('departamento_id')->constrained();
-            $table->string('email')->unique()->nullable();
             $table->foreignId('staff_id')->constrained();
             $table->timestamps();
         });
