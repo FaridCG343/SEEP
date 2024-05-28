@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
             'telefono' => '1234567890',
             'departamento_id' => $departamento->id,
         ]);
-        
+
         $user->save();
 
         $user = new User([
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'telefono' => '1234567890',
             'departamento_id' => $departamento->id,
         ]);
-        
+
         $user->save();
 
         $medico = new Medico([
@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
 
         $medico->save();
 
-        Paciente::factory(10000)->create();
+        Paciente::factory(20)->create();
 
         Cita::factory(20)->create();
     }

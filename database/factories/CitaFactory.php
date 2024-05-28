@@ -19,23 +19,13 @@ class CitaFactory extends Factory
      */
     public function definition(): array
     {
-        /*
-        'paciente_id',
-        'medico_id',
-        'institucion_medica_id',
-        'departamento_id',
-        'fecha_hora_cita',
-        'tipo',
-        'estatus',
-        'motivo',
-        */
         return [
             'paciente_id' => $this->faker->numberBetween(1, 10),
             'medico_id' => 1,
             'institucion_medica_id' => 1,
             'departamento_id' => 1,
             'fecha_hora_cita' => Carbon::now()->addDays($this->faker->numberBetween(1, 10)),
-            'tipo' => $this->faker->randomElement(['Consulta', 'Examen', 'Operación']),
+            'tipo_id' => $this->faker->numberBetween(1, 20),
             'estatus' => $this->faker->randomElement(['Pendiente']),
             'motivo' => $this->faker->sentence(10),
         ];

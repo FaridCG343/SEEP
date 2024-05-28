@@ -1,5 +1,7 @@
 <?php
 
+use App\Enum\TipoCita as EnumTipoCita;
+use App\Models\TipoCita;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,13 +13,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medicos', function (Blueprint $table) {
+        Schema::create('tipo_citas', function (Blueprint $table) {
             $table->id();
-            $table->string('cedula_profesional', 10)->unique();
-            $table->foreignId('especialidad_id')->constrained('especialidades');
-            $table->foreignId('staff_id')->constrained();
+            $table->string('Descripcion');
             $table->timestamps();
         });
+
+        collect(EnumTipoCita::toArray())->each(
+            fn (string $descripcion) => TipoCita::create(['Descripcion' => $descripcion])
+        );
     }
 
     /**
@@ -25,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('medicos');
+        Schema::dropIfExists('tipo_citas');
     }
 };

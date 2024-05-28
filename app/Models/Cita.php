@@ -48,4 +48,9 @@ class Cita extends Model
     {
         return $this->belongsTo(Departamento::class);
     }
+
+    public function tipoCita()
+    {
+        return $this->belongsTo(TipoCita::class, 'tipo');
+    }
 }
