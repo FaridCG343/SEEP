@@ -116,7 +116,7 @@
                 </div>
 
 
-                    <div class="bg-white rounded-2x p-2 flex items-center self-end gap-2 rounded-2xl">
+                    <div class="bg-white rounded-2x p-2 flex items-center self-end gap-2 rounded-2xl shadow-lg">
                         <img src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?w=740&t=st=1716740217~exp=1716740817~hmac=ec8a703f3bb71545019facac85ea4f7c0ad4593962f93e038c7219a3866fe62d"
                         alt="avatar"
                         class="inline-block relative object-cover object-center !rounded-full w-12 h-12 border-2 border-blue-300 p-0.5" />
@@ -125,10 +125,6 @@
                             {{Auth::user()->nombre}} {{Auth::user()->apellido_paterno}}
                         </h6>
                     </div>
-
-                    @php
-                        
-                    @endphp
 
 
             </div>
