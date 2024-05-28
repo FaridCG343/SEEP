@@ -60,14 +60,28 @@ class FormUsuario extends Component
 
     public function mount()
     {
-        $this->departamentos = Departamento::all();
-        $this->instituciones = InstitucionMedica::all();
-        $this->especialidades = Especialidad::all();
+        $this->instituciones = InstitucionMedica::all()->map(function ($institucion) {
+            return [
+                'id' => $institucion->id,
+                'name' => $institucion->nombre
+            ];
+        })->toArray();
+        $this->especialidades = Especialidad::all()->map(function ($especialidad) {
+            return [
+                'id' => $especialidad->id,
+                'name' => $especialidad->nombre
+            ];
+        })->toArray();
     }
 
     public function updatedInstitucionesId($value)
     {
-        $this->departamentos = Departamento::where('institucion_medica_id', $value)->get();
+        $this->departamentos = collect(Departamento::where('institucion_medica_id', $value)->get())->map(function ($departamento) {
+            return [
+                'id' => $departamento->id,
+                'name' => $departamento->nombre
+            ];
+        })->toArray();
     }
 
     public function save()
@@ -108,12 +122,13 @@ class FormUsuario extends Component
                     'especialidad_id' => $this->especialidad_id
                 ]);
             }
+
+            DB::commit();
+            // send success
         } catch (\Exception $e) {
             DB::rollBack();
             // send error
         }
-        DB::commit();
-        // send success
     }
 
     public function render()

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Cita;
+use App\Models\InstitucionMedica;
 use App\Models\Medico;
 use App\Models\TipoCita;
 use Livewire\Component;
@@ -11,11 +12,15 @@ class AgendarCitas extends Component
 {
     public $pacienteSearch;
 
+    public $pacientes;
+
     public $pacienteId;
 
     public $fechaHora;
 
     public $medicoSearch;
+
+    public $medicos;
 
     public $medicoId;
 
@@ -24,6 +29,10 @@ class AgendarCitas extends Component
     public $tipo;
 
     public $motivo;
+
+    public $instituciones;
+
+    public $institucionId;
 
     public $departamentos;
 
@@ -37,7 +46,23 @@ class AgendarCitas extends Component
                 'name' => $tipo->Descripcion,
             ];
         });
+        $this->instituciones = InstitucionMedica::all()->map(function ($institucion) {
+            return [
+                'id' => $institucion->id,
+                'name' => $institucion->nombre,
+            ];
+        });
         $this->pacienteId = $pacienteId;
+    }
+
+    public function updatedInstitucionesId($institucionId)
+    {
+        $this->departamentos = InstitucionMedica::find($institucionId)->departamentos->map(function ($departamento) {
+            return [
+                'id' => $departamento->id,
+                'name' => $departamento->nombre,
+            ];
+        });
     }
 
     public function agendarCita()
