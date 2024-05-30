@@ -100,12 +100,12 @@ class AgendarCitas extends Component
 
     public function updatedInstitucionId($institucionId)
     {
-        $this->departamentos = InstitucionMedica::find($institucionId)->departamentos->map(function ($departamento) {
+        $this->departamentos = InstitucionMedica::find($institucionId)?->departamentos?->map(function ($departamento) {
             return [
                 'id' => $departamento->id,
                 'name' => $departamento->nombre,
             ];
-        });
+        }) ?? [];
     }
 
     public function actualizarHorasDisponibles()
