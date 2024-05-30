@@ -11,7 +11,7 @@ class FormDepartamentos extends Component
 {
     public $nombre;
 
-    public $instituciones;
+    public $instituciones =[];
 
     public $institucion_medica_id;
 

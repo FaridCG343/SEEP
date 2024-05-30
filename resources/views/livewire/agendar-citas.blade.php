@@ -92,6 +92,7 @@
                     <x-datepicker label="Fecha" wire:model.live="fecha" type="date" icon="o-calendar" :config="$fechaOptions" 
                     class="select select-xs select-info bg-white !text-xs" />
 
+                    <!--conflicto-->
                     <x-choices label="Hora" wire:model="hora" :options="$horasDisponibles" single 
                     class="select select-xs select-info bg-white !text-xs" />
 
@@ -106,8 +107,9 @@
 
         <!-- Acción -->
         <x-slot:actions>
-            <div class="flex justify-end mt-6">
-                <x-button label="Agendar" class="btn-primary" type="submit" spinner="agendarCita" />
+            <div class="justify-self-end mr-10 mt-6">
+                <x-button label="Agendar" icon="o-plus-circle" class="btn-sm btn-info text-white rounded-3xl" 
+                type="submit" spinner="agendarCita" />
             </div>
         </x-slot:actions>
     </x-form>
