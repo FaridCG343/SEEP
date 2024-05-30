@@ -1,6 +1,6 @@
 <x-base>
     <x-slot:title>
-        New patient
+        Nuevo Paciente
     </x-slot:title>
     @livewire('App\Livewire\FormPacientes')
 </x-base>

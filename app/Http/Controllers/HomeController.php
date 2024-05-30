@@ -37,4 +37,9 @@ class HomeController extends Controller
     {
         return view('agendar-cita');
     }
+
+    public function showFormUsuarios()
+    {
+        return view('new-user');
+    }
 }

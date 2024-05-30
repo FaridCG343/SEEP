@@ -28,4 +28,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/calendario-citas', [HomeController::class, 'calendarioCitas'])->name('calendario-citas');
     Route::get('/new-patient', [HomeController::class, 'newPatient'])->name('new-patient');
     Route::get('/agendar-cita', [HomeController::class, 'agendarCita'])->name('agendar-citas');
+    Route::get('/form-usuarios', [HomeController::class, 'showFormUsuarios'])->name('form-usuarios');
+
 });
