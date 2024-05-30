@@ -108,7 +108,7 @@
                         </a>
 
                         <!--if user admin-->
-                        @if (Auth::user()->role == 'Administrador')
+                        @if (Auth::user()->rol == 'Administrador')
                             <div class="dropdown inline-block w-full">
                                 <button
                                     class="dropbtn font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">

@@ -45,7 +45,7 @@ class HomeController extends Controller
 
     public function showFormInstitucionesMedicas()
     {
-        return view('form-instituciones-medicas');
+        return view('form-institucion-medica');
     }
 
     public function showFormDepartamentos()
