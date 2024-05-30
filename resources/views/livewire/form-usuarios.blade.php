@@ -69,7 +69,7 @@
                     class="input input-xs input-info bg-white" />
 
                 <x-input wire:model="password" label="Contraseña" icon="" hint=""
-                    class="input input-xs input-info bg-white" />
+                    class="input input-xs input-info bg-white" type="password" />
             </div>
         </div>
 
