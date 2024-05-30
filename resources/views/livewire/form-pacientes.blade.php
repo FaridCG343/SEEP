@@ -20,10 +20,8 @@
             {{-- personal info card --}}
             <div class=" flex card h-90 p-6 shadow-xl bg-white mr-10 ml-10">
                 <div class="flex align-middle items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#5EADFF" class="w-4 h-4">
-                        <path
-                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="none" stroke="#2AA8FF" stroke-width="1.5"><circle cx="9" cy="9" r="2"/><path d="M13 15c0 1.105 0 2-4 2s-4-.895-4-2s1.79-2 4-2s4 .895 4 2Z"/><path stroke-linecap="round" d="M22 12c0 3.771 0 5.657-1.172 6.828C19.657 20 17.771 20 14 20h-4c-3.771 0-5.657 0-6.828-1.172C2 17.657 2 15.771 2 12c0-3.771 0-5.657 1.172-6.828C4.343 4 6.229 4 10 4h4c3.771 0 5.657 0 6.828 1.172c.47.47.751 1.054.92 1.828M19 12h-4m4-3h-5m5 6h-3"/></g></svg>
+
                     <h1 class="font-bold text-lg text-color-title-ds">Informacion Personal</h1>
                 </div>
 
@@ -115,13 +113,13 @@
     {{-- Modal --}}
     <div x-data="{ showModal: @entangle('showModal') }" x-show="showModal" class="fixed inset-0 z-50 overflow-y-auto font-montserrat">
         <div class="flex items-center justify-center min-h-screen p-4 text-center">
-            <div class="fixed inset-0 transition-opacity" x-show="showModal" x-transition:enter="ease-out duration-300"
-                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-                x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0">
+            <div class="fixed inset-0 transition-opacity" x-show="showModal"
+                x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
-            
+
             <div x-show="showModal" x-transition:enter="ease-out duration-300"
                 x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
@@ -129,7 +127,7 @@
                 x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
-                
+
                 <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
                         {{ $messageTitle }}
@@ -149,6 +147,6 @@
             </div>
         </div>
     </div>
-    
-        
-    </div>
+
+
+</div>
