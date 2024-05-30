@@ -7,7 +7,6 @@
 @import "tailwindcss/utilities";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @layer utilities {
     .text-gradient {
         background-clip: text;
@@ -15,24 +14,25 @@
     }
 
     .custom-table {
-        border-collapse:collapse;
+        border-collapse: collapse;
         width: 100%;
-        color:black;
+        color: black;
 
     }
-    
+
     .custom-table th {
         padding-left: 0.1px;
         color: #000000;
         border: 1 px solid #ddd;
         font-size: 12px;
     }
+
     .custom-table td {
         padding: 1px;
         border: 1px solid #ddd;
         font-size: 9px;
         text-align: center;
-        
+
     }
 
     .page-item {
@@ -54,7 +54,7 @@
         border-width: 0 1.5rem 3rem 1.5rem;
         transform: rotate(45deg);
         border-color: transparent transparent #D2E8FF transparent;
-      }
+    }
 
     .triangle2 {
         width: 0;
@@ -65,7 +65,7 @@
         border-color: transparent transparent #D2E8FF transparent;
     }
 
-    .triangle3{
+    .triangle3 {
         width: 0;
         height: 0;
         border-style: solid;
@@ -94,10 +94,45 @@
         scrollbar-color: #a9d3ff transparent;
     }
 
-    .color-font{
+    .color-font {
         color: #70B6FD;
     }
+
+
+    /*
+    dropdown
+    */
+    .dropdown-content {
+        background-color: white;
+        min-width: 180px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1; /* Asegura que el dropdown aparezca por encima de todos los otros elementos */
+        top: calc(100% + 5px); /* Alinea el dropdown justo debajo del botón */
+        left: 0; /* Alinea el dropdown con el lado izquierdo del botón */
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #9DCCFB;
+        color: aliceblue;
+
+    }
+    
+    .dropdown {
+        display: inline-block;/* Ajusta el contexto de apilamiento del dropdown */
+    }
+    
     
 
-
+    
 }

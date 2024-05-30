@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class FormUsuario extends Component
+class FormUsuarios extends Component
 {
     public $nombre;
 
@@ -118,6 +118,6 @@ class FormUsuario extends Component
 
     public function render()
     {
-        return view('livewire.form-usuario');
+        return view('livewire.form-usuarios');
     }
 }

@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/calendario-citas', [HomeController::class, 'calendarioCitas'])->name('calendario-citas');
     Route::get('/new-patient', [HomeController::class, 'newPatient'])->name('new-patient');
+    Route::get('/form-usuarios', [HomeController::class, 'showFormUsuarios'])->name('form-usuarios');
+
 });
 
 
