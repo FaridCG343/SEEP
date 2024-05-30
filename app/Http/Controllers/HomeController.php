@@ -32,4 +32,9 @@ class HomeController extends Controller
     {
         return view('new-patient');
     }
+
+    public function agendarCita()
+    {
+        return view('agendar-cita');
+    }
 }

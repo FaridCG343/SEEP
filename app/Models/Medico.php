@@ -31,4 +31,9 @@ class Medico extends Model
     {
         return $this->belongsTo(Departamento::class);
     }
+
+    public function citas()
+    {
+        return $this->hasMany(Cita::class);
+    }
 }

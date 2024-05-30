@@ -11,6 +11,8 @@
     <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body>
@@ -74,6 +76,19 @@
                             Calendario
                         </a>
 
+                        <a role="button" href="{{ route('agendar-citas') }}"
+                            class="font-semibold text-sm flex items-center w-full pl-5 py-1.5 transition-all rounded-2xl outline-none text-start hover:bg-font-text-logo hover:bg-opacity-80 md:text-font-text-logo md:hover:text-text-hover">
+                            <div class="grid mr-2 place-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                    viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2"
+                                        d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16m-9 4h1m0 0v3" />
+                                </svg>
+                            </div>
+                            Agendar Cita
+                        </a>
+
                         <hr class="my-2 border-blue-gray-50" />
 
                         <a role="button"
@@ -116,19 +131,18 @@
                 </div>
 
 
-                    <div class="bg-white rounded-2x p-2 flex items-center self-end gap-2 rounded-2xl">
-                        <img src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?w=740&t=st=1716740217~exp=1716740817~hmac=ec8a703f3bb71545019facac85ea4f7c0ad4593962f93e038c7219a3866fe62d"
+                <div class="bg-white rounded-2x p-2 flex items-center self-end gap-2 rounded-2xl">
+                    <img src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?w=740&t=st=1716740217~exp=1716740817~hmac=ec8a703f3bb71545019facac85ea4f7c0ad4593962f93e038c7219a3866fe62d"
                         alt="avatar"
                         class="inline-block relative object-cover object-center !rounded-full w-12 h-12 border-2 border-blue-300 p-0.5" />
-                        <h6
-                            class="block text-xs text-gray-900 antialiased font-semibold leading-relaxed tracking-normal">
-                            {{Auth::user()->nombre}} {{Auth::user()->apellido_paterno}}
-                        </h6>
-                    </div>
+                    <h6 class="block text-xs text-gray-900 antialiased font-semibold leading-relaxed tracking-normal">
+                        {{ Auth::user()->nombre }} {{ Auth::user()->apellido_paterno }}
+                    </h6>
+                </div>
 
-                    @php
-                        
-                    @endphp
+                @php
+
+                @endphp
 
 
             </div>
