@@ -76,12 +76,22 @@ class FormUsuarios extends Component
 
     public function updatedInstitucionesId($value)
     {
-        $this->departamentos = collect(Departamento::where('institucion_medica_id', $value)->get())->map(function ($departamento) {
+        $this->instituciones_id = $value;
+
+    $this->departamentos = collect(Departamento::where('institucion_medica_id', $value)->get())->map(function ($departamento) {
+        return [
+            'id' => $departamento->id,
+            'name' => $departamento->nombre
+        ];
+    })->toArray();
+
+        /*$this->departamentos = collect(Departamento::where('institucion_medica_id', $value)->get())->map(function ($departamento) {
             return [
                 'id' => $departamento->id,
                 'name' => $departamento->nombre
             ];
-        })->toArray();
+        })->toArray();*/
+        
     }
 
     public function save()

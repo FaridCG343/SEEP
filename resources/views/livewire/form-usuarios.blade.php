@@ -74,9 +74,12 @@
                 <div class="divider-norm"></div>
     
                 <div class="font-regular text-color-title-ds text-xs">
-                    <x-select wire:model="rol" label="Instituciones" :options="$rols"
-                            class="select select-xs select-info bg-white" />
+                    <x-choices label="Institucion" wire:model="instituciones_id" :options="$instituciones"
+                               search-function="searchInstituciones" no-result-text="Ops! Nothing here ..." single searchable
+                               @change-selection="$wire.set('instituciones_id', event.detail.value);" debounce="250ms"
+                               class="select select-xs select-info bg-white"  />
                 </div>
+                
             </div>
         </div>
         
