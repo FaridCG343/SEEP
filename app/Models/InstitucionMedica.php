@@ -11,6 +11,12 @@ class InstitucionMedica extends Model
 
     protected $table = 'instituciones_medicas';
 
+    protected $fillable = [
+        'nombre',
+        'direccion_id',
+        'tipo'
+    ];
+
     public function direccion()
     {
         return $this->belongsTo(Direccion::class);

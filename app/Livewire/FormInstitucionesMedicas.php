@@ -58,7 +58,7 @@ class FormInstitucionesMedicas extends Component
             'nombre' => 'required',
             'calle' => 'required',
             'numero_exterior' => 'required',
-            'numero_interior' => 'required',
+            'numero_interior' => 'nullable',
             'colonia' => 'required',
             'codigo_postal' => 'required',
             'ciudad' => 'required',
@@ -91,7 +91,7 @@ class FormInstitucionesMedicas extends Component
             $this->dispatch('info', message: 'Usuario registrado exitosamente');
         } catch (\Exception $e) {
             DB::rollback();
-            // notificar al usuario
+            dd($e);
         }
 
         $this->reset();

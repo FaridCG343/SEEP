@@ -217,7 +217,16 @@ class AgendarCitas extends Component
             'estatus' => EstadoCita::PENDIENTE,
         ]);
         $this->dispatch('info', message: 'Cita agendada correctamente');
-        $this->reset();
+        $this->reset([
+            'fecha',
+            'hora',
+            'medicoId',
+            'tipo',
+            'motivo',
+            'departamentoId',
+            'pacienteId',
+            'institucionId'
+        ]);
     }
 
     public function render()

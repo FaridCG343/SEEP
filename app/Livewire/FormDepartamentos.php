@@ -11,7 +11,7 @@ class FormDepartamentos extends Component
 {
     public $nombre;
 
-    public $instituciones =[];
+    public $instituciones = [];
 
     public $institucion_medica_id;
 
@@ -19,7 +19,7 @@ class FormDepartamentos extends Component
 
     public $telefono;
 
-    public $escpecialidades;
+    public $especialidades = [];
 
     public $especialidad_id;
 
@@ -35,10 +35,16 @@ class FormDepartamentos extends Component
 
     public function mount()
     {
-        $this->escpecialidades = Especialidad::all()->map(function ($especialidad) {
+        $this->especialidades = Especialidad::all()->map(function ($especialidad) {
             return [
                 'id' => $especialidad->id,
-                'nombre' => $especialidad->nombre
+                'name' => $especialidad->nombre
+            ];
+        })->toArray();
+        $this->instituciones = InstitucionMedica::all()->take(5)->map(function ($institucion) {
+            return [
+                'id' => $institucion->id,
+                'name' => $institucion->nombre
             ];
         });
     }
@@ -63,7 +69,7 @@ class FormDepartamentos extends Component
 
         $this->reset();
 
-        $this->emit('departamentoCreated', $departamento->id);
+        $this->dispatch('info', message: 'Se registró con exito');
     }
 
     public function render()
