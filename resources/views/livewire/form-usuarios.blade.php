@@ -143,7 +143,7 @@
 
         <div class="flex card h-44 p-6 shadow-xl bg-white mr-10 ml-10">
             <div class="flex align-middle items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
                     <path fill="#2AA8FF"
                         d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9zm6.82 6L12 12.72L5.18 9L12 5.28zM17 15.99l-5 2.73l-5-2.73v-3.72L12 15l5-2.73z" />
                 </svg>
@@ -160,12 +160,13 @@
                 class="select select-xs select-info bg-white !text-xs" />
             </div>
         </div>
+       
         <x-slot:actions>
-            <x-button label="Registrar" icon="o-plus-circle" class=" btn-sm btn-info text-white rounded-3xl"
+            <div class="justify-self-end mr-10 mt-6">
+                <x-button label="Registrar" icon="o-plus-circle" class=" btn-sm btn-info text-white rounded-3xl"
                 type="submit" spinner='save' />
+            </div>  
         </x-slot:actions>
-        <div class="justify-self-end mr-10 mt-6">
-            
-        </div>
+        
     </x-form>
 </div>

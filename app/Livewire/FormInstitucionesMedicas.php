@@ -52,12 +52,13 @@ class FormInstitucionesMedicas extends Component
 
     public $tipo;
 
-    public function save()
+    public function registrarInstit()
     {
         $this->validate([
             'nombre' => 'required',
             'calle' => 'required',
             'numero_exterior' => 'required',
+            'numero_interior' => 'required',
             'colonia' => 'required',
             'codigo_postal' => 'required',
             'ciudad' => 'required',
@@ -87,7 +88,7 @@ class FormInstitucionesMedicas extends Component
                 'tipo' => $this->tipo
             ]);
             DB::commit();
-            // notificar al usuario
+            $this->dispatch('info', message: 'Usuario registrado exitosamente');
         } catch (\Exception $e) {
             DB::rollback();
             // notificar al usuario
@@ -100,4 +101,6 @@ class FormInstitucionesMedicas extends Component
     {
         return view('livewire.form-instituciones-medicas');
     }
+
+    //no se almacenan las nuevas instituciones
 }

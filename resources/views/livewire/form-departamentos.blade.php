@@ -1,3 +1,5 @@
-<div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+<div class="w-full h-full font-montserrat p-5 design-over">
+    <x-form wire:submit="agendarCita">
+        
+    </x-form> 
 </div>
