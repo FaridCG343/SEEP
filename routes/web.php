@@ -29,5 +29,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/new-patient', [HomeController::class, 'newPatient'])->name('new-patient');
     Route::get('/agendar-cita', [HomeController::class, 'agendarCita'])->name('agendar-citas');
     Route::get('/form-usuarios', [HomeController::class, 'showFormUsuarios'])->name('form-usuarios');
-
+    Route::get('/form-instituciones-medicas', [HomeController::class, 'showFormInstitucionesMedicas'])->name('form-instituciones-medicas');
+    Route::get('/form-departamentos', [HomeController::class, 'showFormDepartamentos'])->name('form-departamentos');
 });
