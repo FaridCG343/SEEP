@@ -42,4 +42,14 @@ class HomeController extends Controller
     {
         return view('new-user');
     }
+
+    public function showFormInstitucionesMedicas()
+    {
+        return view('form-instituciones-medicas');
+    }
+
+    public function showFormDepartamentos()
+    {
+        return view('form-departamentos');
+    }
 }
