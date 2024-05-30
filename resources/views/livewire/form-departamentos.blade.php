@@ -1,8 +1,17 @@
 <div class="w-full h-full font-montserrat p-5 design-over">
-    <x-form wire:submit="agendarCita">
+    <x-form wire:submit="save">
         <div class="flex items-center justify-between gap-2 mt-2">
             <div class="flex gap-2 self-center items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><g fill="#2AA8FF"><path d="M12.5 16a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0"/><path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1z"/><path d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                    <g fill="#2AA8FF">
+                        <path
+                            d="M12.5 16a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0" />
+                        <path
+                            d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6.5a.5.5 0 0 1-1 0V1H3v14h3v-2.5a.5.5 0 0 1 .5-.5H8v4H3a1 1 0 0 1-1-1z" />
+                        <path
+                            d="M4.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm-6 3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
+                    </g>
+                </svg>
                 <h1 class="font-extrabold text-xl text-color-title-ds">Registrar Departamentos</h1>
             </div>
         </div>
@@ -11,7 +20,7 @@
         <div class="divider-ps"></div>
 
 
-        
+
         <div class="flex flex-col gap-y-8 justify-center">
             {{-- personal info card --}}
             <div class=" flex card h-90 p-6 shadow-xl bg-white mr-10 ml-10">
@@ -34,8 +43,8 @@
                         class="input input-xs input-info bg-white" />
                     <x-input wire:model="descripcion" label="Descripcion" icon="" hint=""
                         class="input input-xs input-info bg-white" />
-                        <x-input wire:model="telefono" label="Telefono" icon="" hint=""
-                        class="input input-xs input-info bg-white"/>
+                    <x-input wire:model="telefono" label="Telefono" icon="" hint=""
+                        class="input input-xs input-info bg-white" />
                 </div>
             </div>
 
@@ -60,9 +69,9 @@
                     </div>
                     <div class="font-regular text-color-title-ds text-xs">
                         <x-choices label="Institucion" wire:model="institucion_medica_id" :options="$instituciones"
-                            search-function="searchInstituciones" no-result-text="Ops! Nothing here ..." single searchable
-                            @change-selection="$wire.set('institucion_medica_id', event.detail.value);" debounce="250ms"
-                            class="select select-xs select-info bg-white !text-xs" />
+                            search-function="searchInstituciones" no-result-text="Ops! Nothing here ..." single
+                            searchable @change-selection="$wire.set('institucion_medica_id', event.detail.value);"
+                            debounce="250ms" class="select select-xs select-info bg-white !text-xs" />
                     </div>
                 </div>
 
@@ -84,9 +93,9 @@
                         <h1 class="font-bold text-lg text-color-title-ds">Especialidad</h1>
                     </div>
                     <div class="font-regular text-color-title-ds text-xs">
-                        <x-choices label="Especialidad" wire:model="escpecialidad_id" :options="$escpecialidades"
-                            search-function="mount" no-result-text="Ops! Nothing here ..." single searchable
-                            @change-selection="$wire.set('institucion_medica_id', event.detail.value);" debounce="250ms"
+                        <x-choices label="Especialidad" wire:model="especialidad_id" :options="$especialidades"
+                            no-result-text="Ops! Nothing here ..." single
+                            @change-selection="$wire.set('especialidad_id', event.detail.value);" debounce="250ms"
                             class="select select-xs select-info bg-white !text-xs" />
                     </div>
                 </div>
@@ -96,9 +105,9 @@
         <x-slot:actions>
             <div class="justify-self-end mr-10 mt-6">
                 <x-button label="Registrar" icon="o-plus-circle" class=" btn-sm btn-info text-white rounded-3xl"
-                type="submit" spinner='save' />
-            </div>  
+                    type="submit" spinner='save' />
+            </div>
         </x-slot:actions>
 
-    </x-form> 
+    </x-form>
 </div>
