@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $departamento = new Departamento([
-            'nombre' => 'Departamento',
+            'nombre' => 'Departamento de Medicina General',
             'institucion_medica_id' => $institucion->id,
             'especialidad_id' => $especialidad->id,
         ]);

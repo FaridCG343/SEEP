@@ -15,13 +15,17 @@ class Cita extends Model
         'institucion_medica_id',
         'departamento_id',
         'fecha_hora_cita',
-        'tipo',
+        'tipo_id',
         'estatus',
         'motivo',
     ];
 
     protected $dates = [
         'fecha_hora_cita',
+    ];
+
+    protected $casts = [
+        'fecha_hora_cita' => 'datetime:Y-m-d H:i',
     ];
 
     protected static function newFactory()
