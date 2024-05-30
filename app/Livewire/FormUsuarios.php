@@ -48,7 +48,7 @@ class FormUsuarios extends Component
 
     public $instituciones_id;
 
-    public $departamentos;
+    public $departamentos = [];
 
     public $departamento_id;
 
@@ -126,18 +126,18 @@ class FormUsuarios extends Component
 
             $staff->save();
 
-            if ($this->rol === 'Medico') {
+            /*if ($this->rol === 'Medico') {
                 $staff->medico()->create([
                     'cedula_profesional' => $this->cedula_profesional,
                     'especialidad_id' => $this->especialidad_id
                 ]);
-            }
+            }*/
 
             DB::commit();
-            // send success
+            $this->dispatch('info', message: 'Usuario registrado exitosamente');
         } catch (\Exception $e) {
             DB::rollBack();
-            // send error
+            $this->dispatch('info', message: 'Hubo un error');
         }
     }
 
