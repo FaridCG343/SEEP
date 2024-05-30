@@ -13,7 +13,6 @@ class Medico extends Model
         'staff_id',
         'especialidad',
         'cedula_profesional',
-        'departamento_id',
         'email',
     ];
 

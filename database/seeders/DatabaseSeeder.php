@@ -86,7 +86,6 @@ class DatabaseSeeder extends Seeder
             'cedula_profesional' => '1234567890',
             'staff_id' => $user->id,
             'especialidad_id' => $especialidad->id,
-            'departamento_id' => $departamento->id,
         ]);
 
         $medico->save();
